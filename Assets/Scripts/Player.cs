@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 	public int playerNumber;
 	public float accel = 1f;
 
-	// Use this for initialization
+	//use this for initialization
 	void Start(){
 		//sets player to the gameobject the script is attached
 		player = this.gameObject;
@@ -34,15 +34,15 @@ public class Player : MonoBehaviour {
 		playerCheck();
 	}
 	
-	// Update is called once per frame
-	void Update() {
+	//update is called once per frame
+	void Update(){
 		movement();
 	}
 
-	//Function for player movement
+	//function for player movement
 	void movement(){
 		//movement variables
-		float speed = 8f;
+		float speed = 5f;
 		//KeyCode array ordered by player number
 		KeyCode[] upInput = {KeyCode.UpArrow, KeyCode.W};
 		KeyCode[] downInput = {KeyCode.DownArrow, KeyCode.S};
@@ -60,8 +60,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	//function for player physics
 	void playerPhysics(){
-		rb.isKinematic = true;
+		//removes gravity and freezes x position
+		rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+		rb.gravityScale = 0f;
+		rb.isKinematic = false;
 	}
 
 	//looks for the GameObjects tag to determine
