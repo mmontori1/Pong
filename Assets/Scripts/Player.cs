@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
 		rb = player.GetComponent<Rigidbody2D>();
 		player.AddComponent<BoxCollider2D>();
 		coll = player.GetComponent<BoxCollider2D>();
+		player.layer = 8;
 
 		playerPhysics();	
 		playerCheck();
