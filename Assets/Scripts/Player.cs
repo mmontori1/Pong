@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 		rb = player.GetComponent<Rigidbody2D>();
 		player.AddComponent<BoxCollider2D>();
 		coll = player.GetComponent<BoxCollider2D>();
-		player.layer = 8;
+//		player.layer = 2;
 
 		playerPhysics();	
 		playerCheck();
@@ -63,8 +63,8 @@ public class Player : MonoBehaviour {
 
 	//function for player physics
 	void playerPhysics(){
-		//removes gravity and freezes x position
-		rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+		//removes gravity and freezes x position and rotation
+		rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 		rb.gravityScale = 0f;
 		rb.isKinematic = false;
 	}
